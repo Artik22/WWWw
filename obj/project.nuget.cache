@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C/KS/206CORG3t3aer2BWmp+2nnWE16dvgb7x6VpBORIuj5C5a0O+GbXZ86Q1Ui0at4AdiWb5uZW+h03kNNg2Q==",
+  "dgSpecHash": "q4PXzSLaDtPJXwgNWNYw5nVSDGXcwU1bm1XACfrk6SXLAC+lA6KJNpVgor7oWnmjNwikTZrS1tlyp8lRpx4JIQ==",
   "success": true,
-  "projectFilePath": "D:\\проект\\web\\web.csproj",
+  "projectFilePath": "D:\\проект\\WWW\\WWWw\\web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\main\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
     "C:\\Users\\main\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

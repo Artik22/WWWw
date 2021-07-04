@@ -9244,11 +9244,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\проект\\web\\web.csproj",
+      "projectUniqueName": "D:\\проект\\WWW\\WWWw\\web.csproj",
       "projectName": "web",
-      "projectPath": "D:\\проект\\web\\web.csproj",
+      "projectPath": "D:\\проект\\WWW\\WWWw\\web.csproj",
       "packagesPath": "C:\\Users\\main\\.nuget\\packages\\",
-      "outputPath": "D:\\проект\\web\\obj\\",
+      "outputPath": "D:\\проект\\WWW\\WWWw\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
