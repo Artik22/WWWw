@@ -1,0 +1,124 @@
+﻿@model IEnumerable<web.Models.User>
+
+
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row">
+                    @*<div>
+                        <h5 class="card-title text-uppercase mb-0">Сотрудники </h5>
+                    </div>
+                    <div>
+                        <a asp-area="" asp-controller="Company" asp-action="AddUserStaff" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                           Добавить  сотрудника
+                        </a>
+                    </div>*@
+                    <div class="table-responsive">
+                        <table class="table no-wrap user-table mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Имя</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Фамилия</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Должность</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Дата принятия на работу</th>
+                                    <th scope="col" class="border-0 text-uppercase font-medium">Пароль</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                                @foreach (var users in Model)
+                                {
+                                    <tr>
+                                        <td class="pl-4">1</td>
+                                        <td>
+                                            <h5 class="font-medium mb-0">@users.LastName @users.FirsName</h5>
+                                            <span class="text-muted">Набережные Челны, Татарстан</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted">Visual Designer</span><br>
+                                            <span class="text-muted">Past : teacher</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted">daniel@website.com</span><br>
+                                            <span class="text-muted">999 - 444 - 555</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-muted">15 Mar 1988</span><br>
+                                            <span class="text-muted">10: 55 AM</span>
+                                        </td>
+                                        <td>
+                                            <h5 class="font-medium mb-0"></h5>
+                                            <span class="text-muted">Набережные Челны, Татарстан</span>
+
+                                            @*<select class="form-control category-select" id="exampleFormControlSelect1">
+                                    <option>Modulator</option>
+                                    <option>Admin</option>
+                                    <option>User</option>
+                                    <option>Subscriber</option>
+                                </select>*@
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
+                                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
+                                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<div class="text-center">
+        <h3>Сотрудники</h3>
+        <table class="table table-dar">
+
+            <tr>
+                <td>№</td>
+                <td>Имя</td>
+                <td>Фамилия</td>
+                <td>email</td>
+                <td>Должность</td>
+                <td>Дата принятия на работу</td>
+                <td>Дата регистрации </td>
+                <td>Пароль</td>
+                <td></td>
+
+            </tr>
+            @foreach (var users in Model)
+            {
+                <tr>
+                    <td>@users.Id</td>
+                    <td>@users.FirsName</td>
+                    <td>@users.LastName</td>
+                    <td>@users.Email</td>
+                    <td>@users.UserPosition</td>
+                    <td>@users.DateOfAcceptance</td>
+                    <td>@users.DateRegistration</td>
+                    <td>@users.Password</td>
+                    <td><a href="~/Account/EdiAccount/@users.Id">Редактировать</a></td>
+
+
+                </tr>
+            }
+        </table>
+    </div>*@

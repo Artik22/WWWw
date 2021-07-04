@@ -1,0 +1,38 @@
+﻿@using web.Models
+@model User
+
+
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        <legend>Студент</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label"><b>Имя</b></div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirsName)
+        </div>
+
+        <div class="editor-label"><b>Фамилия</b></div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+        </div>
+        <div class="editor-label"><b>Курсы</b></div>
+        @foreach (Article c in Model.Articles)
+        {
+            <input type="checkbox" name="selectedCourses" value="@c.Id"
+                   @(Model.Articles.Contains(c) ? "checked=\"checked\"" : "") />@c.Title <br />
+            }
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}

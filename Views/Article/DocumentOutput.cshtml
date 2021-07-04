@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "DocumentOutput";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container bg-light">
+    <p><h2> @Html.Raw(Model.Title) </h2> </p>
+
+
+    @Html.Raw(Model.Description)
+
+    <div>
+        @foreach (var user in Model.Users)
+        {
+            @user.FirsName 
+      
+        }
+    </div>
+
+    <a asp-area="" asp-controller="Article" asp-action="ListTitleArticl" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+            <i class="fa fa-step-backward"> вернуться к списку</i>
+     </a>
+
+
+</div>
+@*<script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            var editor = CKEDITOR.replace('content1');
+        });
+</script>*@

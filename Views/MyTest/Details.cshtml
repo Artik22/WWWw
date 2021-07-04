@@ -1,0 +1,35 @@
+﻿@using web.Models
+@model User
+
+
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+
+    <fieldset>
+        <legend>Информация о сотруднике</legend>
+
+        <div class="display-label"><b>Имя</b></div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FirsName)
+        </div>
+
+        <div class="display-label"><b>Фамилия</b></div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.LastName)
+        </div>
+
+        <div class="display-label"><b>Курсы</b></div>
+        <ul>
+            @foreach (Article c in Model.Articles)
+            {
+                <li>@c.Title</li>
+            }
+        </ul>
+
+    </fieldset>
+</div>

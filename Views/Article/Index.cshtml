@@ -1,0 +1,125 @@
+﻿@*@model IEnumerable<web.Models.Article>*@
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    @*test
+
+    @Html.Raw(Model.FirsName)*@
+
+        @*<div>
+
+            @foreach (var user in Model.Articles)
+             {
+                @user.Title
+             }
+
+        </div>*@
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div>
+                            <h5 class="card-title text-uppercase mb-0">База знаний </h5>
+                        </div>
+                        <div>
+                            <a asp-area="" asp-controller="Article" asp-action="CreateArticl" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                              Создать документ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table no-wrap user-table mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Наименование</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Дата изменения</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+
+    @foreach (var users in Model)
+        {
+            <tr>
+                <td class="pl-4">1</td>
+                <td>
+                    <a href="~/Article/DocumentOutput/@users.Id">
+                        <h5 class="font-medium mb-0">@users.Title</h5>
+                        <span class="text-muted">Набережные Челны, Татарстан</span>
+                    </a>
+                </td>
+                <td>
+                    <span class="text-muted">Visual Designer</span><br>
+                    <span class="text-muted">Past : teacher</span>
+                </td>
+
+
+                <td>
+                    <a href="~/Article/DocumentOutput/@users.Id" class="btn btn-outline-info btn-circle btn-lg btn-circle">
+                        <i class="fa fa-file-text"></i>
+                    </a>
+                    <a href="~/Article/DeleteArticl/@users.Id" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                        <a href="~/Article/EditArticl/@users.Id" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                            <i class="fa fa-edit"></i>
+                        </a>
+
+
+            </tr>
+
+        }
+
+    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="container">
+    <div class="row">
+        <div>
+            <table class="table table-dar">
+
+                <tr>
+                    <td>№</td>
+                    <td>Название</td>
+                    <td>описание</td>
+
+                    <td>под вопросом</td>
+                    <td></td>
+
+                </tr>
+
+                    <tr>
+                        <td>Id</td>
+                        <td>Title</td>
+                        <td>Description</td>--Ю
+
+                        <!--<td><a href="~/Article/EditArticl/Id">Редактировать</a></td>
+
+
+                    </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+</div>-->

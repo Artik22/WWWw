@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "CreateGruppList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateGruppList</h1>
+
+
+<div class="container-fluid bg-light">
+
+
+
+
+    @*@foreach (Group group in Model)
+        {
+
+
+            <div class="row">
+                <div class="col-10">
+                    <h3>@group.GroupName          </h3>
+                </div>
+
+                <div class="col-1">
+                    <a href="~/Article/DeleteArticl/@group.GroupId" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+                <div class="col-1">
+                    <a href="~/Article/EditArticl/@group.GroupId" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+        }*@
+
+
+    @using (Html.BeginForm("CreateGruppList", "Article", FormMethod.Post))
+    {
+        <div>
+            <p>
+                <label>Название группы</label><br />
+                @Html.TextBox("nameGroup")
+            </p>
+        </div>
+
+      
+        @*<div>
+            @Html.DropDownList("GroupId", ViewBag.Groups as SelectList)
+        </div>*@
+            @*<div>
+                <input type="text" value="" name="users" />
+                @Html.DropDownList("usersId", ViewBag.Users as SelectList)
+            </div>*@
+        <div>
+            <input type="submit" value="Создать" />
+        </div>
+    }
+
+
+
+
+</div>

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "ListTitleArticl";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid bg-light">
+
+    @*@ViewBag.user*@
+    @if (ViewBag.user == "Admin")
+    {
+        <div class="row">
+            <div class="col-2">
+                <a asp-area="" asp-controller="Article" asp-action="CreateArticl" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                    Создать документ
+                </a>
+
+            </div>
+            <div class="col-2">
+                <a asp-area="" asp-controller="Article" asp-action="CreateGruppList" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                    Добавить группу
+                </a>
+
+            </div>
+        </div>
+
+    }
+
+    @*@foreach (Group group in Model)
+    {
+        @group.GroupName
+    }*@
+
+@*@foreach(Group group in Model)
+       {
+            *@
+@*< h3 > @group.GroupName </ h3 > *@
+@*@foreach(Article article in group.Articles) *@
+@foreach(Article article in Model)
+{
+<div class="row text-center">
+    <div class="col-10">
+        <a href="~/Article/DocumentOutput/@article.Id">
+            @article.Title
+            @*// вывести наименование группы ( к кому относиться )*@
+        </a>
+    </div>
+    @if (ViewBag.user == "Admin")
+    {
+        @*<div class="col-1">
+                <a href="" class="btn btn-outline-info btn-circle btn-lg btn-circle">
+                    <i class="fa fa-file-text"></i>
+                </a>
+            </div>*@
+        <div class="col-1">
+            <a href="~/Article/DeleteArticl/@article.Id" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+        <div class="col-1">
+            <a href="~/Article/EditArticl/@article.Id" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+                <i class="fa fa-edit"></i>
+            </a>
+        </div>
+    }
+</div>
+
+}
+
+@*}*@
+
+
+
+
+
+
+
+</div>

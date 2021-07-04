@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- CSS | STYLE -->
+
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/linecons.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/colors/brown.css" id="csscolors" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/NewFeed/newfeed.css" />
+
+
+</head>
+<body>
+
+
+
+
+    <div class="d-flex" style="min-height:100vh">
+        <!-- Sidebar-->
+        <div class="aside1">
+            @*<a    asp-area="" asp-controller="PersonalAccount" asp-action="Index" class="contact-button"><i class="fa fa-paper-plane"> Лк</i></a>
+            <a class="download-button"><i class="fa fa-cloud-download"></i></a>*@
+            <div class="aside-content">
+                <span class="part1">PULSE</span><span class="part2">ПЕРСОНАЛЬНАЯ ВИЗИТНАЯ КАРТОЧКА</span>
+                @Html.ViewContext.HttpContext.User.Identity.Name
+            </div>
+        </div>
+        <aside class="hs-menu" id="hs-menu">
+            <!-- <canvas id="demo-canvas"></canvas> -->
+            <!-- Profil Image-->
+            <div class="hs-headline">
+                <a id="my-link" href="#my-panel"><i class="fa fa-bars"></i></a>
+                <a href="#" class="download"><i class="fa fa-cloud-download"></i></a>
+                <div class="img-wrap">
+                    <img src="~/images/DytLogo.png" alt="" width="150" height="150" />
+                </div>
+                <div class="profile_info">
+                    <h1>ДУТЬ</h1>
+                    <h4>База знаний</h4>
+                    <a asp-area="" asp-controller="Home" asp-action="Index"> <h6> <span class="fa fa-user-circle-o"></span>   @Html.ViewContext.HttpContext.User.Identity.Name</h6></a>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="separator-aside"></div>
+            <!-- End Profil Image-->
+            <!-- menu -->
+            <nav>
+                <a asp-area="" asp-controller="Home" asp-action="Index"><span class="menu_name">Главная</span><span class="fa fa-home"></span> </a>
+                <a href="#section2"><span class="menu_name">Компания</span><span class="fa fa-newspaper-o"></span> </a>
+
+               
+               
+                <a asp-area="" asp-controller="Company" asp-action="UserStaff">
+                    <span class="menu_name">
+                        Сотрудники
+                    </span>
+                    <span class="fa fa-laptop">
+
+                    </span>
+                </a>
+                @*<a asp-area="" asp-controller="Article" asp-action="Index"><span class="menu_name">База знаний</span><span class="fa fa-laptop"></span> </a>*@
+                <a asp-area="" asp-controller="Article" asp-action="ListTitleArticl"><span class="menu_name">Документы</span><span class="fa fa-users"></span> </a>
+                @*<a href="#section5"><span class="menu_name">Курсы</span><span class="fa fa-money"></span> </a>
+        <a href="#section6"><span class="menu_name">Тестирование</span><span class="fa fa-diamond"></span> </a>
+        <a href="#section7"><span class="menu_name">Идеи</span><span class="fa fa-archive"></span> </a>*@
+
+            </nav>
+            <!-- end menu-->
+            <!-- social icons -->
+            <div class="aside-footer">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa fa-github"></i></a>
+            </div>
+            <!-- end social icons -->
+        </aside>
+
+        <!-- End sidebar -->
+        <!-- Go To Top Button -->
+        <a href="#hs-menu" class="hs-totop-link"><i class="fa fa-chevron-up"></i></a>
+        <!-- End Go To Top Button -->
+        <main   data-spy="scroll" role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+
+
+
+
+</html>

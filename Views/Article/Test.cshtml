@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Test</h1>
+
+<div class="container bg-light">
+    @*<p><h2> @Html.Raw(Model.Title) </h2> </p>*@
+
+   @ViewBag.user.FirsName
+
+    @*@Html.Raw(Model.Description)*@
+    @*@Html.Raw(Model.Roles)*@
+    <div>
+        @foreach (Group group in Model)
+        {
+        <h3>          @group.GroupName          </h3>
+        <ul>
+            @foreach (Article article in group.Articles)
+            {
+            <li>
+                <a href="">    @article.Title </a> 
+             </li>
+
+            }
+        </ul>
+        }
+       
+            
+    </div>
+
+
+    <a href="~/Article/index" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">
+        <i class="fa fa-step-backward"> вернуться к списку</i>
+    </a>
+
+
+</div>
