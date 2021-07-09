@@ -18,6 +18,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/css/NewFeed/newfeed.css" />
 
+    <link href="jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .prokrutka {
+            height: 800px; /* высота нашего блока */
+            width: 1200px; /* ширина нашего блока */
+            background: #fff; /* цвет фона, белый */
+            border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+            overflow-x: scroll; /* прокрутка по горизонтали */
+            overflow-y: scroll; /* прокрутка по вертикали */
+        }
+    </style>
 
 </head>
 <body>
@@ -29,7 +41,7 @@
         <!-- Sidebar-->
         <div class="aside1">
             @*<a    asp-area="" asp-controller="PersonalAccount" asp-action="Index" class="contact-button"><i class="fa fa-paper-plane"> Лк</i></a>
-            <a class="download-button"><i class="fa fa-cloud-download"></i></a>*@
+                <a class="download-button"><i class="fa fa-cloud-download"></i></a>*@
             <div class="aside-content">
                 <span class="part1">PULSE</span><span class="part2">ПЕРСОНАЛЬНАЯ ВИЗИТНАЯ КАРТОЧКА</span>
                 @Html.ViewContext.HttpContext.User.Identity.Name
@@ -58,8 +70,8 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index"><span class="menu_name">Главная</span><span class="fa fa-home"></span> </a>
                 <a href="#section2"><span class="menu_name">Компания</span><span class="fa fa-newspaper-o"></span> </a>
 
-               
-               
+
+
                 <a asp-area="" asp-controller="Company" asp-action="UserStaff">
                     <span class="menu_name">
                         Сотрудники
@@ -71,8 +83,8 @@
                 @*<a asp-area="" asp-controller="Article" asp-action="Index"><span class="menu_name">База знаний</span><span class="fa fa-laptop"></span> </a>*@
                 <a asp-area="" asp-controller="Article" asp-action="ListTitleArticl"><span class="menu_name">Документы</span><span class="fa fa-users"></span> </a>
                 @*<a href="#section5"><span class="menu_name">Курсы</span><span class="fa fa-money"></span> </a>
-        <a href="#section6"><span class="menu_name">Тестирование</span><span class="fa fa-diamond"></span> </a>
-        <a href="#section7"><span class="menu_name">Идеи</span><span class="fa fa-archive"></span> </a>*@
+                    <a href="#section6"><span class="menu_name">Тестирование</span><span class="fa fa-diamond"></span> </a>
+                    <a href="#section7"><span class="menu_name">Идеи</span><span class="fa fa-archive"></span> </a>*@
 
             </nav>
             <!-- end menu-->
@@ -91,7 +103,7 @@
         <!-- Go To Top Button -->
         <a href="#hs-menu" class="hs-totop-link"><i class="fa fa-chevron-up"></i></a>
         <!-- End Go To Top Button -->
-        <main   data-spy="scroll" role="main" class="pb-3">
+        <main data-spy="scroll" role="main" class="pb-3 prokrutka ">
             @RenderBody()
         </main>
     </div>
@@ -101,10 +113,16 @@
                 &copy; 2021 - web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>*@
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="jquery.mCustomScrollbar.concat.min.js"></script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+
 </body>
 
 

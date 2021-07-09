@@ -102,6 +102,18 @@ namespace web.Controllers
             return NotFound();
         }
 
+        //[Authorize(Roles = "Admin")]
+        //public async Task<IActionResult> EditArticl(int GroupId, string name, string content1)
+        //{
+        //    if (id != null)
+        //    {
+        //        Article user = await db.Articles.FirstOrDefaultAsync(p => p.Id == id);
+        //        if (user != null)
+        //            return View(user);
+        //    }
+        //    return NotFound();
+        //}
+
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteArticl(int? id)
