@@ -19,14 +19,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace web.Controllers
 {
- //  [Authorize(Roles = "Admin")]
+    //  [Authorize(Roles = "Admin")]
     public class ArticleController : Controller
     {
         private Context db;
         public ArticleController(Context contex)
         {
             db = contex;
-  
+
         }
 
         //[Authorize]
@@ -66,7 +66,7 @@ namespace web.Controllers
         public IActionResult CreateArticl()
         {
             ViewBag.Groups = new SelectList(db.Groups, "GroupId", "GroupName");
-          //  ViewBag.Users = new SelectList(db.Users, "Id", "FirsName");
+            //  ViewBag.Users = new SelectList(db.Users, "Id", "FirsName");
             return View();
         }
 
@@ -75,21 +75,22 @@ namespace web.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateArticl(int GroupId, string name, string content1)// string users   или  int usersId
         {
-            Article article = new Article { Title = name, Description = content1 , DateOfCreate = DateTime.Now , DateOfEdit = DateTime.Now};
+            Article article = new Article { Title = name, Description = content1, DateOfCreate = DateTime.Now, DateOfEdit = DateTime.Now };
             Group group = await db.Groups.FirstOrDefaultAsync(d => d.GroupId == GroupId);
             Position userPosition = await db.Positions.FirstOrDefaultAsync(p => p.PositionName == "Admin"); //Roles.FirstOrDefaultAsync(r => r.RoleName == "user");
 
-            // db.Articles.Add(userPosition);       
-            //   db.Groups.Add(userPosition); 
+            //db.Articles.Add(userPosition);
+            //db.Groups.Add(userPosition);
             article.Groups.Add(group);
             article.Positions.Add(userPosition);
             db.Articles.Add(article);
-          
+
             await db.SaveChangesAsync();
 
             return RedirectToAction("ListTitleArticl");
         }
 
+       [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditArticl(int? id)
         {
@@ -102,17 +103,26 @@ namespace web.Controllers
             return NotFound();
         }
 
-        //[Authorize(Roles = "Admin")]
-        //public async Task<IActionResult> EditArticl(int GroupId, string name, string content1)
-        //{
-        //    if (id != null)
-        //    {
-        //        Article user = await db.Articles.FirstOrDefaultAsync(p => p.Id == id);
-        //        if (user != null)
-        //            return View(user);
-        //    }
-        //    return NotFound();
-        //}
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> EditArticl(int id, int GroupId, string name, string content1)
+        {
+            
+            if (id != null)
+            {
+                Article article = new Article {Id = id, Title = name, Description = content1, DateOfCreate = DateTime.Now, DateOfEdit = DateTime.Now };
+                //Group group = await db.Groups.FirstOrDefaultAsync(d => d.GroupId == GroupId);
+
+                db.Articles.Remove(article);
+                await db.SaveChangesAsync();
+                //Article articl = await db.Articles.FirstOrDefaultAsync(p => p.Id == id);
+                //if (articl != null)
+
+                return RedirectToAction("ListTitleArticl");
+            }
+            return NotFound();
+        }
 
 
         [Authorize(Roles = "Admin")]
@@ -200,7 +210,8 @@ namespace web.Controllers
         {
 
           Article article = await db.Articles.FirstOrDefaultAsync(p => p.Id == id);
-                 if (article != null)
+             
+            if (article != null)
                 {
                     return View(article);
                 }

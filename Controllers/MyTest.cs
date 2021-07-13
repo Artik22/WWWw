@@ -32,9 +32,56 @@ namespace web.Controllers
             return "пользователь" + brouser;// + "пользователь" + brouser1 + "пользователь" + brouser11;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(db.Users.ToList());
+           
+
+            Claim us = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultRoleClaimType);
+            if (us == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            string role = us.Value;
+
+            //return Content($"ваша роль: { role.ToString() }");
+
+
+            string EmailContex = HttpContext.User.Identity.Name;  //получили емаил из куки
+
+
+
+            User user1 = await db.Users.FirstOrDefaultAsync(p => p.Email == EmailContex);
+
+            //получить ид присвоить и выдать 
+            Group user = await db.Groups.Include(c => c.Articles).FirstOrDefaultAsync(p => p.GroupId == 2);
+          
+            Group user2 = await db.Groups.FirstOrDefaultAsync(p => p.Users == user1);
+            //передаем в представление список
+            var a = user.Articles.ToList();
+        
+            
+            
+            
+                Article article1 = await db.Articles.FirstOrDefaultAsync(a => a.Users == user1);
+            // return View(article1);
+         //   Group group = await db.Groups.Include(a => a.Articles).FirstOrDefaultAsync(d => d.Users == EmailContex);
+            if (user != null)
+            {
+                List<int> ids = new List<int>();
+                //  List<Article> aricles = user.Articles.ToList();
+                List<Article> groups1 = user.Articles.ToList();
+                foreach (var article in groups1)
+                {
+                    ids.Add(article.Id);
+                }
+                //   var groups = db.Groups.FirstOrDefaultAsync(p => p.Positions == user.Positions);
+                //  var groups = db.Groups.Include(c => c.Articles).Where(g => ids.Contains(g.GroupId)).ToList();
+                ViewBag.user = role.ToString();
+                return View(a);
+
+            }
+            return NotFound();
+
         }
 
         public ActionResult Details(int id)

@@ -8,12 +8,14 @@
 
     <script src="~/ckeditor/ckeditor.js"></script>
     <div>
-        @using (Html.BeginForm("CreateArticl", "Article", FormMethod.Post))
+        @using (Html.BeginForm("EditArticl", "Article", FormMethod.Post))
         {
             <div>
                 <p>
                     <label>Имя</label><br />
-                    @Html.TextBox("Name")
+                
+                    @Html.Raw(Model.Title);
+                        @Html.TextBox("Name") 
                 </p>
             </div>
 
