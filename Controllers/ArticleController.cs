@@ -114,7 +114,7 @@ namespace web.Controllers
                 Article article = new Article {Id = id, Title = name, Description = content1, DateOfCreate = DateTime.Now, DateOfEdit = DateTime.Now };
                 //Group group = await db.Groups.FirstOrDefaultAsync(d => d.GroupId == GroupId);
 
-                db.Articles.Remove(article);
+                db.Articles.Update(article);
                 await db.SaveChangesAsync();
                 //Article articl = await db.Articles.FirstOrDefaultAsync(p => p.Id == id);
                 //if (articl != null)
